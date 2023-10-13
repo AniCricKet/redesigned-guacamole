@@ -1,25 +1,16 @@
 ---
 toc: true
-comments: false
-layout: post
+comments: true
 title: Game of Life
-description: Grab of the Game of Life from APCSA repo.
-type: hacks
-courses: { compsci: {week: 2} }
+layout: default
+description: A remix of Conway's game of life using timer, onclick and algorithms.
+type: tangibles
+courses: {csa: {week: 2}}
 ---
 
 {% comment %}
 Conway's Game of Life https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 {% endcomment %}
-
-## Try Game by checking boxes with following patterns.
-
-```
-Up glider   Down Glider   Very Fun
- xxx           x            x
-   x            x            x
-  x           xxx           xxx
-```
 
 <style>
     #container {
@@ -210,4 +201,3 @@ function start() {
 }
 
 </script>
-

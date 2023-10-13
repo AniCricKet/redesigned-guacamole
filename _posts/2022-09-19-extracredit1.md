@@ -1,0 +1,16 @@
+---
+toc: true
+comments: true
+layout: post
+title: Extra Credit Session Notes
+description: Takeaways and Reflection
+type: tangibles
+courses: {csa: {week: 5}}
+---
+
+# Takeaways
+
+The advice from the panel of former high school students highlighted a few key points about how AP Computer Science can be helpful in college and offered valuable advice. One big takeaway is that the basics learned in AP Computer Science are valuable in college, no matter what major you choose. These skills, like problem-solving and coding, are useful in various college courses and projects. They also mentioned practical things like using Linux, scripting, and web development skills learned in AP CS, which came in handy in specific college classes like autonomous robotics.The panelists also stressed the importance of knowing tools like GitHub and Agile Manifesto and understanding concepts like Scrum teams. These are useful in real-world work settings, and learning them early can give you an advantage. They advised applying to many colleges because some programs, like computer science, can be competitive, and there are no guarantees. They also mentioned alternative majors like cognitive science and data science if computer science is tough to get into. They recommended getting involved in extracurricular activities that demonstrate your understanding of college work, like teaching positions or internships. Finally, they highlighted the importance of building projects, even simple ones, and putting them online, as this impresses potential employers and helps you stand out. It's also a good idea to create a personal website to showcase your skills and ongoing projects. 
+
+# Reflection
+Reflecting on these insights, I can see the importance of not only mastering the fundamental concepts of computer science but also staying attuned to emerging tools and technologies. The "cheat codes" mentioned, such as deploying projects with Vercel, using web development frameworks like SvelteKit, and tailoring frontend design with Tailwind CSS, provide a clear direction for enhancing a personal portfolio and making it stand out to potential employers. Moreover, creating a personal website that showcases technical skills and ongoing projects is a tangible way to demonstrate proficiency and commitment to the field. Looking ahead, I definitely want to make a personal website and host it online so I can show my personal resume and projects when applying for both internships and colleges. This website doesn't need to have the best content, as employers are more interested in technical skills. Furthermore, the panel's advice on problem-solving through platforms like LeetCode and preparing for in-person coding assessments serves as a reminder that technical skills must be coupled with problem-solving abilities for success in the job market. Overall, the panel's insights inspire me to continue building a strong foundation in computer science while actively exploring and mastering the tools and concepts that can set me apart in a competitive field.

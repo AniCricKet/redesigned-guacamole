@@ -1,13 +1,12 @@
 ---
-toc: false
-comments: false
-layout: post
+toc: true
+comments: true
 title: Classic Snake Game
-description: A pretty advanced use of JavaScript building classic snake game using menu controls, key events, snake simulation and timers.
+layout: default
+description: A pretty advanced use of JavaScript building classic snake game using menu controls, key events, snake simulation and timers.  
 type: tangibles
-courses: { compsci: {week: 2} }
+courses: {csa: {week: 2}}
 ---
-
 <style>
 
     body{
@@ -311,19 +310,19 @@ courses: { compsci: {week: 2} }
         let changeDir = function(key){
             // test key and switch direction
             switch(key) {
-                case 37:    // left arrow
+                case 65:    // left arrow
                     if (snake_dir !== 1)    // not right
                         snake_next_dir = 3; // then switch left
                     break;
-                case 38:    // up arrow
+                case 87:    // up arrow
                     if (snake_dir !== 2)    // not down
                         snake_next_dir = 0; // then switch up
                     break;
-                case 39:    // right arrow
+                case 68:    // right arrow
                     if (snake_dir !== 3)    // not left
                         snake_next_dir = 1; // then switch right
                     break;
-                case 40:    // down arrow
+                case 83:    // down arrow
                     if (snake_dir !== 0)    // not up
                         snake_next_dir = 2; // then switch down
                     break;
@@ -372,3 +371,4 @@ courses: { compsci: {week: 2} }
         }
     })();
 </script>
+
