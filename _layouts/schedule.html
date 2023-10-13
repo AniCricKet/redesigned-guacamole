@@ -8,9 +8,8 @@ Setup course data
     - Within course create units
 {%endcomment%}
 
-{% assign course = site.data[page.course] %} <!-- Load YML data -->
+{% assign course = site.data[page.course] %} <!-- Load YAML data -->
 {% assign units = page.units | split: ',' %}
-<h1>{{page.title}}</h1>
 <br>
 
 {%comment%} 
@@ -36,15 +35,15 @@ Load all posts with site
 {% assign end = unitData.end %}
 
 {%comment%} 
-<!-- Output Column Headings for Blogs -->
+<!-- Output Column Headings for Blogs (Excluding "Plans") -->
 {%endcomment%}
 
 <table>
   <tr>
     <th>Week</th>
-    <th>Plans</th>
-    <th>Hacks(Todo)</th>
+    <th>Hacks</th>
     <th>Tangibles</th>
+    <th>Summaries</th>
   </tr>
 
   {%comment%} 
@@ -60,10 +59,9 @@ Load all posts with site
   {% assign deli = sym | compact %} 
 
   {% for index in (start..end) -%}
-    {% assign plans = null | compact %}
     {% assign hacks = null | compact %}
     {% assign tangibles = null | compact %}
-
+    {% assign summary = null | compact %}
 
   {%comment%} 
   <!-- looping through all posts -->
@@ -79,27 +77,26 @@ Load all posts with site
         {% assign url = post.url | compact %}
   
   {%comment%} 
-  <!-- process posts for current week -->
+  <!-- process posts for the current week -->
   {%endcomment%}
         {% if week == index %} 
 
   {%comment%} 
-  <!-- organizing blogs by type -->
+  <!-- organizing blogs by type (Excluding "Plans") -->
   {%endcomment%}
-          {% if post.type == "plans" %} 
-              {% assign plans = plans | unshift: title %}
-              {% assign plans = plans | unshift: url %}
-          {% elsif post.type == "hacks" %}
+          {% if post.type == "hacks" %} 
               {% assign hacks = hacks | unshift: title %}
-              {% assign hacks = hacks | unshift: url %} 
+              {% assign hacks = hacks | unshift: url %}
           {% elsif post.type == "tangibles" %}
               {% assign tangibles = tangibles | unshift: title %}
               {% assign tangibles = tangibles | unshift: url %} 
+          {% elsif post.type == "summary" %}
+              {% assign summary = summary | unshift: title %}
+              {% assign summary = summary | unshift: url %} 
           {% else %}
               {% assign uk = uk | unshift: title %}
               {% assign uk = uk | unshift: url %}     
           {% endif %}
-
         {% endif %}
       {% endif %}
     {% endfor %}
@@ -107,10 +104,10 @@ Load all posts with site
   {%comment%} 
   <!-- ordering units and inserting column delimiters -->
   {%endcomment%}
-  {% assign units = units | concat:plans | concat:deli | concat:hacks | concat:deli | concat:tangibles  %}
+  {% assign units = units | concat:hacks | concat:deli | concat:tangibles | concat:deli | concat:summary |  %}
 
   {%comment%} 
-  <!-- This Loop is maximum iterationss, since elements are pairs it will decrement a extra times at the end -->
+  <!-- This Loop is maximum iterations, since elements are pairs it will decrement an extra time at the end -->
   {%endcomment%}
   <tr>
   <td> {{ index }} </td> 
@@ -118,18 +115,48 @@ Load all posts with site
   {% for i in (0..units.size) -%} 
     {% if units.size == 0 %}
       {% break %}
-    {% elsif units[0] == sym %} <!-- make new column -->
+    {% elsif units[0] == sym %} <!-- make a new column -->
   </td>
   <td>
       {% assign units = units | shift %} <!-- remove delimiter -->
     {% else %} <!-- make a link in the column -->
       - <a href="{{site.baseurl}}/{{units[0]}}">{{units[1]}}</a> <br/> 
-      {% assign units = units | shift | shift %} <!-- remove title and url -->
+      {% assign units = units | shift | shift %} <!-- remove title and URL -->
     {% endif %}
   {% endfor %}
   </td>
   </tr>
   {% endfor %}
-
 </table>
 {% endfor %}
+
+<style>
+      h1 {
+          font-size: 50px;
+          text-align: center;
+          margin-top: 50px;
+          color: white;
+      }
+      table {
+          width: 1000px;
+          border-collapse: separate;
+          margin: 0 auto;  
+          background-color: rgb(217, 238, 255);
+      }
+      th, td {
+          border: 1.5px dashed #000000;
+          padding: 10px 10px;
+          text-align: center;
+          width: 333px;
+      }
+      th {
+          background-color: #3da3a4;
+          color: #ffffff;
+      }
+      td {
+          color: #000000;
+      }
+      a {
+          color:rgb(0, 0, 0);
+      }
+</style>
